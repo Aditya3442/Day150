@@ -1,0 +1,15 @@
+class Solution {
+    int maxi = 0 ;
+    private int recur(TreeNode root){
+        if(root == null)
+             return 0;
+        int lh = recur(root.left);
+        int rh = recur(root.right);
+        maxi = Math.max(lh + rh , maxi);
+        return 1 + Math.max(lh , rh);
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        recur(root);
+        return maxi ;
+    }
+}
